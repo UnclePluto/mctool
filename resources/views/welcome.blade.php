@@ -1,12 +1,6 @@
 @extends('layouts.app')
 
 <style>
-    html, body {
-        background-color: #fff;
-        height: 100vh;
-        margin: 0;
-    }
-
     .full-height {
         height: 90vh;
     }

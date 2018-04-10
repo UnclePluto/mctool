@@ -12,6 +12,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit-icons.min.js"></script> --}}
 </head>
 <body>
     <div id="app">
@@ -25,6 +28,20 @@
                         <a class="uk-navbar-item uk-logo" href="{{ url('/') }}">
                             {{ config('app.name', 'Laravel') }}
                         </a>
+
+                        <ul class="uk-navbar-nav">
+                            <li>
+                                <a class="uk-navbar-item" href="{{ url('/') }}">
+                                    基础工具
+                                </a>
+                            </li>
+                            <li>
+                                <a class="uk-navbar-item" href="{{ url('/') }}">
+                                    wiki/论坛
+                                </a>
+                            </li>
+                        </ul>
+
                     </div>
 
                     <div class="uk-navbar-right">
@@ -35,13 +52,14 @@
                             @else
                                 <li>
                                     <a href="#">{{ Auth::user()->name }}</a>
-                                    <div class="uk-navbar-dropdown">
-                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    <div class="uk-navbar-dropdown uk-box-shadow-medium" uk-dropdown="mode: hover">
+                                        <ul class="uk-nav uk-navbar-dropdown-nav uk-iconnav">
                                             <li>
+                                                
                                                 <a href="{{ route('logout') }}"
                                                     onclick="event.preventDefault();
                                                              document.getElementById('logout-form').submit();">
-                                                    登出
+                                                    <span uk-icon="icon: close"></span> 登出
                                                 </a>
 
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -63,7 +81,6 @@
         @yield('content')
     </div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    
 </body>
 </html>

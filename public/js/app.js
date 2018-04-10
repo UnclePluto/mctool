@@ -970,7 +970,6 @@ module.exports = __webpack_require__(37);
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
 /**
  * First, we will load all of this project's Javascript utilities and other
  * dependencies. Then, we will be ready to develop a robust and powerful
@@ -982,7 +981,6 @@ __webpack_require__(11);
 /***/ }),
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
-
 
 window._ = __webpack_require__(12);
 
@@ -1006,7 +1004,7 @@ try {
 
 window.axios = __webpack_require__(18);
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
@@ -1017,9 +1015,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 var token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+  window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
 } else {
-  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+  console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
 }
 
 /**
