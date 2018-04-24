@@ -10,6 +10,9 @@ try {
   window.$ = window.jQuery = require("jquery");
 
   window.UIkit = require("uikit");
+  const UIIcons = require("uikit/dist/js/uikit-icons");
+
+  window.UIkit.use(UIIcons);
 } catch (e) {}
 
 /**
