@@ -8,7 +8,7 @@
 
                 <div class="uk-padding uk-box-shadow-large">
 
-                    <h2>Set New Password</h2>
+                    <h2>设置新的密码</h2>
 
                     @if (session('status'))
                         <div class="uk-alert-primary" uk-alert>
@@ -23,7 +23,7 @@
                         <input type="hidden" name="token" value="{{ $token }}">
 
                         <div>
-                            <label class="uk-form-label">Email Address</label>
+                            <label class="uk-form-label">邮箱</label>
                             <input id="email" type="email" class="uk-input{{ $errors->has('email') ? ' uk-form-danger' : '' }}" name="email" value="{{ old('email') }}" required>
 
                             @if ($errors->has('email'))
@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="uk-margin">
-                            <label class="uk-form-label">Password</label>
+                            <label class="uk-form-label">密码</label>
                             <input id="password" type="password" class="uk-input{{ $errors->has('password') ? ' uk-form-danger' : '' }}" name="password" value="{{ old('password') }}" required>
 
                             @if ($errors->has('password'))
@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="uk-margin">
-                            <label class="uk-form-label">Confirm Password</label>
+                            <label class="uk-form-label">确认密码</label>
                             <input id="password_confirmation" type="password" class="uk-input{{ $errors->has('password_confirmation') ? ' uk-form-danger' : '' }}" name="password_confirmation" value="{{ old('password_confirmation') }}" required>
 
                             @if ($errors->has('password_confirmation'))
@@ -56,7 +56,7 @@
                         </div>
 
                         <div class="uk-margin">
-                            <button class="uk-button uk-button-primary" type="submit" name="button">Reset Password</button>
+                            <button class="uk-button uk-button-primary" type="submit" name="button">修改密码</button>
                         </div>
 
                     </form>
