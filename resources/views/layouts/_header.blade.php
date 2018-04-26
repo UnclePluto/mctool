@@ -12,15 +12,22 @@
 
                         <ul class="uk-navbar-nav">
                             <li>
-                                <a class="uk-navbar-item" href="{{ url('/tools') }}">
-                                    基础工具
+                                <a class="uk-navbar-item" href="{{ url('http://faq.netease.im/') }}">
+                                    FAQ
                                 </a>
                             </li>
                             <li>
-                                <a class="uk-navbar-item" href="{{ url('/') }}">
-                                    wiki/论坛
+                                <a class="uk-navbar-item" href="{{ route('home') }}">
+                                    常用链接
                                 </a>
                             </li>
+                            @if (!Auth::guest() && Auth::user()->role === 0)
+                            <li>
+                                <a class="uk-navbar-item" href="{{ route('setting') }}">
+                                    设置
+                                </a>
+                            </li>
+                            @endif
                         </ul>
                     </div>
 
