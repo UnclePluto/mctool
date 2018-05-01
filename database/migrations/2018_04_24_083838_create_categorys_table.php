@@ -13,7 +13,7 @@ class CreateCategorysTable extends Migration
      */
     public function up()
     {
-        Schema::create('categorys', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('pid')->index()->default(0);
             $table->string('cname');
@@ -30,6 +30,6 @@ class CreateCategorysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categorys');
+        Schema::dropIfExists('categories');
     }
 }
