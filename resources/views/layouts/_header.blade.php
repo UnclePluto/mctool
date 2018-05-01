@@ -12,12 +12,12 @@
 
                         <ul class="uk-navbar-nav">
                             <li>
-                                <a class="uk-navbar-item" href="{{ url('http://faq.netease.im/') }}">
+                                <a class="uk-navbar-item" target="_blank" href="{{ url('http://faq.netease.im/') }}">
                                     FAQ
                                 </a>
                             </li>
                             <li>
-                                <a class="uk-navbar-item" href="{{ route('home') }}">
+                                <a class="uk-navbar-item" href="{{ route('categories.index') }}">
                                     常用链接
                                 </a>
                             </li>
@@ -35,7 +35,7 @@
                         <ul class="uk-navbar-nav">
                             @if (Auth::guest())
                                 <li><a href="{{ route('login') }}">登录</a></li>
-                                <li><a href="{{ route('register') }}">注册</a></li>
+                                <li><a href="{{ route('signup') }}">注册</a></li>
                             @else
                                 <li>
                                     <a href="#"><span uk-icon="icon: user"></span>&nbsp;{{ Auth::user()->name }}</a>

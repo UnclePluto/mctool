@@ -15,9 +15,9 @@ class CreateCategorysTable extends Migration
     {
         Schema::create('categorys', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('pid');
+            $table->integer('pid')->index()->default(0);
             $table->string('cname');
-            $table->boolean('has_child');
+            $table->boolean('has_child')->default(false);
             $table->integer('creator');
             $table->timestamps();
         });

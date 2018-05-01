@@ -19,6 +19,7 @@
 <body>
     <div id="app">
         @include('layouts._header')
+        @include('shared._messages')
         @yield('content')
         @include('layouts._footer')
     </div>

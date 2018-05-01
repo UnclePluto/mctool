@@ -29,10 +29,7 @@ class SettingController extends Controller
             return redirect()->back()->withErrors("没有权限")->withInput();
         } else {
 
-
-
-
-            return view("setting.show",);
+            return view("setting.show");
         }
 
     }
