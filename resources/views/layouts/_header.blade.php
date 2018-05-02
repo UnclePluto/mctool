@@ -16,11 +16,14 @@
                                     FAQ
                                 </a>
                             </li>
-                            <li>
+                            {{-- <li><a href="javascript:setHome(this,window.location)">
+                                <span class="uk-navbar-item"></span>设为首页</a>
+                            </li>  --}}
+                            {{-- <li>
                                 <a class="uk-navbar-item" href="{{ route('categories.index') }}">
                                     常用链接
                                 </a>
-                            </li>
+                            </li> --}}
                             @if (!Auth::guest() && Auth::user()->role === 0)
                             <li>
                                 <a class="uk-navbar-item" href="{{ route('setting') }}">
@@ -28,6 +31,7 @@
                                 </a>
                             </li>
                             @endif
+                            
                         </ul>
                     </div>
 
