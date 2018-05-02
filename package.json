@@ -14,7 +14,7 @@
     "cross-env": "^5.1",
     "laravel-mix": "^1.0",
     "lodash": "^4.17.4",
-    "uikit": "^3.0.0-beta.35"
+    "uikit": "^3.0.0-beta.42"
   },
   "dependencies": {
     "ajv": "^6.4.0",

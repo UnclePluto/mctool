@@ -16,14 +16,17 @@
                                     FAQ
                                 </a>
                             </li>
-                            {{-- <li><a href="javascript:setHome(this,window.location)">
+                            {{-- 
+                            <li><a href="javascript:setHome(this,window.location)">
                                 <span class="uk-navbar-item"></span>设为首页</a>
                             </li>  --}}
-                            {{-- <li>
+                            {{-- 
+                            <li>
                                 <a class="uk-navbar-item" href="{{ route('categories.index') }}">
                                     常用链接
                                 </a>
-                            </li> --}}
+                            </li>
+                             --}}
                             @if (!Auth::guest() && Auth::user()->role === 0)
                             <li>
                                 <a class="uk-navbar-item" href="{{ route('setting') }}">
@@ -44,20 +47,23 @@
                                 <li>
                                     <a href="#"><span uk-icon="icon: user"></span>&nbsp;{{ Auth::user()->name }}</a>
                                     <div class="uk-navbar-dropdown uk-box-shadow-medium" uk-dropdown="mode: hover">
-                                        <ul class="uk-nav uk-navbar-dropdown-nav uk-iconnav">
-                                            <li>
-                                                
-                                                <a href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault();
-                                                             document.getElementById('logout-form').submit();">
-                                                    <span uk-icon="icon: sign-out"></span> 登出
-                                                </a>
-
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                    {{ csrf_field() }}
-                                                </form>
-                                            </li>
-                                        </ul>
+                                            <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+                                                <li>  
+                                                    <a href="{{ route('users.edit',Auth::user()->id) }}">
+                                                        <span class="uk-margin-small-right" uk-icon="icon: file-edit"></span> 修改信息
+                                                    </a>
+                                                </li>
+                                                <li> 
+                                                    <a href="{{ route('logout') }}"
+                                                        onclick="event.preventDefault();
+                                                                document.getElementById('logout-form').submit();">
+                                                        <span class="uk-margin-small-right" uk-icon="icon: sign-out"></span> 登出
+                                                    </a>
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                        {{ csrf_field() }}
+                                                    </form>
+                                                </li>
+                                            </ul>
                                     </div>
                                 </li>
                             @endif
