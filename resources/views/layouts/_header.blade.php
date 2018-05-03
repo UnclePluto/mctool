@@ -42,12 +42,19 @@
                         <ul class="uk-navbar-nav">
                             @if (Auth::guest())
                                 <li><a href="{{ route('login') }}">登录</a></li>
-                                <li><a href="{{ route('signup') }}">注册</a></li>
                             @else
                                 <li>
                                     <a href="#"><span uk-icon="icon: user"></span>&nbsp;{{ Auth::user()->name }}</a>
                                     <div class="uk-navbar-dropdown uk-box-shadow-medium" uk-dropdown="mode: hover">
                                             <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+                                                @can('create', Auth::user())
+                                                    <li>
+                                                        <a href="{{ route('signup') }}">
+                                                        <span class="uk-margin-small-right" uk-icon="icon: plus"></span>
+                                                        创建用户
+                                                        </a>
+                                                    </li>
+                                                @endcan
                                                 <li>  
                                                     <a href="{{ route('users.edit',Auth::user()->id) }}">
                                                         <span class="uk-margin-small-right" uk-icon="icon: file-edit"></span> 修改信息

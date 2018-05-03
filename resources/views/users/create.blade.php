@@ -8,7 +8,7 @@
 
                 <div class="uk-padding uk-box-shadow-large">
 
-                    <h2>注册</h2>
+                    <h2>创建用户</h2>
 
                     <form class="uk-form-stacked" role="form" method="POST" action="{{ route('users.store') }}">
 

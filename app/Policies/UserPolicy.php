@@ -14,4 +14,9 @@ class UserPolicy
     {
         return $currentUser->id === $user->id;
     }
+
+    public function create(User $currentUser)
+    {
+        return $currentUser->role === 0;
+    }
 }

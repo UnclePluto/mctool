@@ -14,13 +14,14 @@ class UsersController extends Controller
             'except' => ['show', 'create', 'store']
         ]);
 
-        $this->middleware('guest', [
-            'only' => ['create']
-        ]);
+        // $this->middleware('guest', [
+        //     'only' => ['create']
+        // ]);
     }
 
     public function create()
     {
+        $this->authorize('create', Auth::user());
         return view('users.create');
     }
 
@@ -32,6 +33,7 @@ class UsersController extends Controller
 
     public function store(Request $request)
     {
+        $this->authorize('create', Auth::user());
         $this->validate($request, [
             'name' => 'required|max:50',
             'email' => 'required|email|unique:users|max:255',
@@ -44,9 +46,9 @@ class UsersController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
-        Auth::login($user);
-        session()->flash('success', '欢迎来到技术支持工具箱');
-        return redirect()->route('categories.index');
+        // Auth::login($user);
+        session()->flash('success', '创建成功');
+        return redirect()->route('users.create');
     }
 
     public function edit(User $user)
@@ -58,14 +60,13 @@ class UsersController extends Controller
     public function update(User $user, Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:50',
             'password' => 'nullable|confirmed|min:6'
         ]);
 
         $this->authorize('update', $user);
 
         $data = [];
-        $data['name'] = $request->name;
+        // $data['name'] = $request->name;
         if ($request->password) {
             $data['password'] = bcrypt($request->password);
         }
