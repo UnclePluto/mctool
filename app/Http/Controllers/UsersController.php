@@ -6,11 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 
-
-
 class UsersController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth', [
@@ -21,7 +18,6 @@ class UsersController extends Controller
             'only' => ['create']
         ]);
     }
-
 
     public function create()
     {
@@ -49,13 +45,13 @@ class UsersController extends Controller
         ]);
 
         Auth::login($user);
-        session()->flash('success', '欢迎，您将在这里开启一段新的旅程~');
+        session()->flash('success', '欢迎来到技术支持工具箱');
         return redirect()->route('categories.index');
     }
 
     public function edit(User $user)
     {
-        $this->authorize('update', compact($user));
+        $this->authorize('update', $user);
         return view('users.edit', compact('user'));
     }
 
@@ -77,9 +73,8 @@ class UsersController extends Controller
 
         session()->flash('success', '个人资料更新成功！');
 
-        return redirect()->route('users.show', $user->id);
+        return redirect()->route('categories.index', $user->id);
     }
-
 
     public function destroy()
     {

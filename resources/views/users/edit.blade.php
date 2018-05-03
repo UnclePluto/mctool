@@ -1,49 +1,39 @@
-@extends('layouts.default')
-@section('title', '更新个人资料')
+@extends('layouts.app')
 
 @section('content')
-<div class="col-md-offset-2 col-md-8">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h5>更新个人资料</h5>
-    </div>
-      <div class="panel-body">
+    <div class="uk-section">
+        <div class="uk-container uk-container-center">
+            <div class="uk-width-1-2@m uk-align-center">
+                <div class="uk-padding uk-box-shadow-large">
+                <h2>编辑资料</h2>
+                    <form class="uk-form-horizontal uk-margin-large" method="POST" action="{{ route('users.update', $user->id )}}">
+                        {{ method_field('PATCH') }}
+                        {{ csrf_field() }}
+                        @include('shared._errors')
+                        <div class="uk-margin">
+                            <label class="uk-form-label" >姓名</label>
+                                <input class="uk-input" id="name" name="name" type="text" value="{{ $user->name }}" disabled></input>
+                        </div>
+                        <div class="uk-margin">
+                            <label class="uk-form-label" >邮箱</label>
+                            <input class="uk-input" id="email" name="email" value="{{ $user->email }}" disabled></input>
+                        </div>
+                        <div class="uk-margin">
+                            <label class="uk-form-label" >密码</label>
+                            <input class="uk-input" id="password" name="password" type="password" value="{{ old('password') }}" ></input>
+                        </div>
+                        <div class="uk-margin">
+                            <label class="uk-form-label" >确认密码</label>
+                            <input class="uk-input" id="password_confirmation" name="password_confirmation" type="password" value="{{ old('password_confirmation') }}"></input>
+                        </div>
+                        
+                        <div class="uk-margin">
+                            <button class="uk-button uk-button-primary" type="submit" name="button">更新</button>
+                        </div>
 
-        @include('shared._errors')
-
-        <div class="gravatar_edit">
-          <a href="http://gravatar.com/emails" target="_blank">
-            <img src="{{ $user->gravatar('200') }}" alt="{{ $user->name }}" class="gravatar"/>
-          </a>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <form method="POST" action="{{ route('users.update', $user->id )}}">
-            {{ method_field('PATCH') }}
-            {{ csrf_field() }}
-
-            <div class="form-group">
-              <label for="name">名称：</label>
-              <input type="text" name="name" class="form-control" value="{{ $user->name }}">
-            </div>
-
-            <div class="form-group">
-              <label for="email">邮箱：</label>
-              <input type="text" name="email" class="form-control" value="{{ $user->email }}" disabled>
-            </div>
-
-            <div class="form-group">
-              <label for="password">密码：</label>
-              <input type="password" name="password" class="form-control" value="{{ old('password') }}">
-            </div>
-
-            <div class="form-group">
-              <label for="password_confirmation">确认密码：</label>
-              <input type="password" name="password_confirmation" class="form-control" value="{{ old('password_confirmation') }}">
-            </div>
-
-            <button type="submit" class="btn btn-primary">更新</button>
-        </form>
     </div>
-  </div>
-</div>
-@stop
+@endsection
